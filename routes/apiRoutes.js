@@ -57,7 +57,7 @@ router.route('/actors')
 
 router.get('/actors/:name', async (req, res) => {
   try {
-    const {name} = req.params;
+    const name = req.params;
     const actorList = await db.Actor.findOne({
       where: {
         fname: `${name}`
