@@ -60,7 +60,7 @@ router.get('/actors/:name', async (req, res) => {
     const {name} = req.params;
     const actorList = await db.Actor.findOne({
       where: {
-        actor_name: `${fname}`
+        fname: `${name}`
       }
     });
     res.send({
