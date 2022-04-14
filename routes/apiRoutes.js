@@ -55,6 +55,22 @@ router.route('/actors')
   })
 // End of Viphu Nguyen's Contribution 1
 
+router.get('/actors/:name', async (req, res) => {
+  try {
+    const {name} = req.params;
+    const actorList = await db.Actor.findOne({
+      where: {
+        actor_name: `${fname}`
+      }
+    });
+    res.send({
+      actorList
+    });
+  } catch (err) {
+    console.error(err);
+    res.send('Server error');
+  }
+});
 /// /////////////////////////////////
 /// ////Dining Hall Endpoints////////
 /// /////////////////////////////////
